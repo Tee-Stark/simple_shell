@@ -76,10 +76,6 @@ cd.c	       helpers1.c	    put_prompt.c	shell.h
 cmd_handler.c  helpers2.c	    README.md		shellimg.jpeg`
 `vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$`
 
-### Release History
-
--   0.0.1 - First release - 17 Apr 2020</br>
-
 ### About
 
 All files were created and compiled on `Ubuntu 14.04.4 LTS` using `GCC 4.8.4` with the following flags: `-Wall -Werror -Wextra -pedantic`
