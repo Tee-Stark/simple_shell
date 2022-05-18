@@ -38,4 +38,7 @@ void prompt(void);
 char *_getenv_list_value(char *name, env_list_t **env);
 char **_get_str_env(env_list_t **env);
 void _unsetenv_list(char **argv, env_list_t **env);
+void printenv_list(env_list_t **env);
+void free_env_list_node(env_list_t *node);
+void free_env_list(env_list_t **env);
 #endif
