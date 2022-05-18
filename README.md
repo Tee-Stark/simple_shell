@@ -50,7 +50,7 @@ Ship$ is also built to handle:
 AUTHORS        get_cmds.c	    man_1_simple_shell	setenv_list.c	whitcher.c
 authors.sh     get_tokens_strtok.c  put_prompt.c	shell.h
 cd.c	       helpers1.c	    README.md		shellimg.jpeg
-cmd_handler.c  helpers2.c	    rem_comments.c	simple_shell.c`</br>
+cmd_handler.c  helpers2.c	    rem_comments.c	simple_shell.c`
 `Ship$`
 
 `Ship$ pwd` 
@@ -78,7 +78,7 @@ cmd_handler.c  helpers2.c	    README.md		shellimg.jpeg`
 
 ### About
 
-All files were created and compiled on `Ubuntu 14.04.4 LTS` using `GCC 4.8.4` with the following flags: `-Wall -Werror -Wextra -pedantic`
+All files were created and compiled on `Ubuntu 20.04.4 LTS` using `gcc` with the following flags: `-Wall -Werror -Wextra -pedantic`
 
 ### Collaborators
 
