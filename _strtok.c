@@ -1,48 +1,79 @@
-#include "shell.h"
-/**
- * _strtok - tokenizes the str
- * @buffer: the string
- * @delim: the dividing char
- * Return: char * to token or NULL
- */
-char *_strtok(char *buffer, const char *delim)
-{
-	static char *sp;
-	char *p;
-	int letter = 0;
-	int i = 0;
-	int stop = 0;
+#include "main.h"
 
-	if (buffer)
-		sp = buffer;
-	p = sp;
-	while (sp && *sp)
+/**
+ * _strtok - tokenizes a string
+ * @s: string to be tokenized
+ * @deli: delimitator for the tokens
+ * Return: pointer to each token
+ */
+char *_strtok(char *s, char *deli)
+{
+	int c;
+	static char *str;
+
+	if (!s)
+		s = str;
+	c = *s++;
+	while (_strchr(deli, c))
 	{
-		while (delim[i])
+		if (c == 0)
+			return (0);
+		c = *s++;
+	}
+	--s;
+	str = s + _strcspn(s, deli);
+	if (*str != 0)
+	{
+		*str = 0;
+		str++;
+	}
+	return (s);
+}
+/**
+ * _strchr - locates character in string
+ * @s: string
+ * @b: character to locate
+ * Return: pointer to the first occurrence of the character
+ */
+char *_strchr(char *s, char b)
+{
+	while (*s != 0)
+	{
+		if (*s == b)
+			return (s);
+		s++;
+	}
+	if (*s == b)
+		return (s);
+	return (0);
+}
+
+/**
+ * _strcspn - gets the length of a prefix string
+ * @s: string
+ * @pre: prefix string
+ * Return: number of bytes in the initial seg of s
+ */
+unsigned int _strcspn(char *s, char *pre)
+{
+	unsigned int len = 0, i = 0;
+
+	while (s[len] != 0)
+	{
+		int flag = 0;
+
+		for (i = 0; pre[i] != 0; i++)
 		{
-			if (*sp == delim[i] && letter == 0)
+			if (s[len] == pre[i])
 			{
-				++p;
-				++sp;
-				i = 0;
-				continue;
-			}
-			if (*sp == delim[i] && letter == 1)
-			{
-				*sp++ = '\0';
-				stop = 1;
-				i = 0;
+				flag = 1;
 				break;
 			}
-			++i;
 		}
-		if (stop || !*sp)
+		if (flag == 0)
+			len++;
+		else
 			break;
-		letter = 1;
-		i = 0;
-		++sp;
 	}
-	if (!p || *p == '\0')
-		return (NULL);
-	return (p);
+	return (len);
 }

@@ -1,44 +1,37 @@
 #include "main.h"
 /**
-* _power  - return power of x to y
-* @x: base
-* @y: exponent
-* Return: x raised to y
-*/
-size_t  _power(size_t x, size_t y)
+ * _atoi - looks for numbers of a string and converts
+ * them into integers.
+ * @s: pointer to the string to be iterated
+ * Return: the number and sign of an array, 0 if no number.
+ */
+int _atoi(char *s)
 {
-	size_t mul = 1;
+	int array;
+	int sign;
+	int num;
+	int out;
 
-	while (y)
+	num = 0;
+	sign = 0;
+	out = 0;
+	for (array = 0; s[array] != '\0'; array++)
 	{
-		mul = x * mul;
-		y--;
-	}
-	return (mul);
-}
-/**
-* _atoi - return first numeric part of string s
-* @s: string to be parsed
-* Return: numeric representation of part or all of string
-*/
-size_t _atoi(char *s)
-{
-	size_t sum = 0, i = 0;
-	int len = 0;
-
-	while (s[len])
-	{
-		if (s[len] < '0' || s[len]  > '9')
+		if (s[array] == '-')
+		{
+			sign++;
+		}
+		if (s[array] >= 48 && s[array] <= 57)
+		{
+			num = num * 10 - (s[array] - '0');
+			out = 1;
+		}
+		else if (out == 1)
+		{
 			break;
-		len++;
+		}
 	}
-
-	while (s[i])
-	{
-		if (s[i] < '0' || s[i] > '9')
-			break;
-		sum = sum + (s[i] - '0') * _power(10, len - i - 1);
-		i++;
-	}
-	return (sum);
+	if ((sign - 1) % 2 != 0)
+		num = num * -1;
+	return (num);
 }
