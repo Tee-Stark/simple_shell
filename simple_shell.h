@@ -35,4 +35,7 @@ char *_strcat(char *dest, char *src);
 char *_getenv(char *path);
 char *_itoa(int num, char *str);
 void prompt(void);
+char *_getenv_list_value(char *name, env_list_t **env);
+char **_get_str_env(env_list_t **env);
+void _unsetenv_list(char **argv, env_list_t **env);
 #endif
